@@ -31,7 +31,7 @@ def encode_single_article(text, model, tokenizer):
         tokenized_text_chunks = [tokenized_text[i:i + max_length] for i in range(0, len(tokenized_text), max_length)]
     else:
         tokenized_text_chunks = [tokenized_text]
-
+    
     pooled_outputs = []
     
     for tokenized_text in tokenized_text_chunks:
@@ -144,6 +144,6 @@ def encode_dataframe_column(dataframe, column_name):
 
 if __name__ == "__main__":
     model_dir = './my_model_directory'
-    tokenizer = BertTokenizer.from_pretrained(model_dir)
-    model = BertModel.from_pretrained(model_dir)
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    model = BertModel.from_pretrained('bert-base-uncased')
     model.eval()
